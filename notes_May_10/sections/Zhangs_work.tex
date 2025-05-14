@@ -1,0 +1,160 @@
+\section{Zhang's work (2008)}
+The following notes summarize the work of Zhang (2008) on sediment contaminants and their effects on benthic communities in the Great Lakes region. 
+The study focuses on the Detroit River and Lake St. Clair, examining the relationship between sediment contamination and zoobenthic community structure.
+
+\subsection{Data sources (Chapter 2)}
+\subsubsection*{1. Chemical Variables (Sediment Contaminants)}
+\subsubsection*{Grouped by Principal Components (PCA)}
+\begin{itemize}
+    \item \textbf{PC1: Trace and Minor Metals}
+    \begin{itemize}
+        \item Aluminum (Al), Manganese (Mn), Cobalt (Co), Nickel (Ni), Iron (Fe), Copper (Cu), Chromium (Cr)
+    \end{itemize}
+    \item \textbf{PC2: Trace Metals and PCBs}
+    \begin{itemize}
+        \item Lead (Pb), Cadmium (Cd), Zinc (Zn), Mercury (Hg), Sum of PCBs
+    \end{itemize}
+    \item \textbf{PC3: Organochlorine Compounds}
+    \begin{itemize}
+        \item DDE (p,p-DDE), OCS (Octachlorostyrene)
+    \end{itemize}
+    \item \textbf{PC4: Individual Variable}
+    \begin{itemize}
+        \item Arsenic (As)
+    \end{itemize}
+\end{itemize}
+
+\vspace{1em}
+\noindent A composite sediment contamination score called \textbf{SumRel} was calculated by standardizing and summing all PC scores.
+
+\subsection*{2. Environmental Variables (Habitat Features)}
+\begin{itemize}
+    \item Water depth (m)
+    \item Water temperature (°C)
+    \item Dissolved oxygen concentration (mg/L)
+    \item Median particle size (phi scale)
+    \item Total organic carbon (\% LOI)
+    \item Geographic coordinates (latitude, longitude)
+    \item Site type (lake or river)
+    \item Near-bottom water velocity (available only for Detroit River sites)
+\end{itemize}
+
+\subsection*{3. Biological Variables (Zoobenthic Taxa)}
+\subsubsection*{Depositional (Soft Substrate) Taxa}
+\begin{itemize}
+    \item Oligochaeta (Tubificidae)
+    \item Chironomidae
+    \item Ephemeridae (e.g., \textit{Hexagenia})
+    \item Nematoda
+    \item Gastropoda
+    \item Acari
+\end{itemize}
+
+\subsubsection*{Erosional (Hard Substrate) Taxa}
+\begin{itemize}
+    \item Amphipoda (e.g., \textit{Gammarus}, \textit{Echinogammarus})
+    \item Dreissena (zebra mussels)
+    \item Trichoptera (Hydropsychidae, Psychomyiidae, Polycentropodidae)
+    \item Hydrozoa (e.g., \textit{Hydra}, \textit{Cordylophora})
+\end{itemize}
+
+\bigskip
+\noindent These taxa were used in cluster analysis, Bray-Curtis ordination, and to construct the Zoobenthic Condition Index (ZCI).
+
+\subsection*{Data sampling and processing approaches}
+There are other data sampling and processing procedures used in the study, they are not listed here. But it is worth to menttion that 
+to make the reliability and accuracy of the data.
+
+\subsection{Analysis Methods (Chapter 2)}
+
+\subsection*{Sediment Contaminant Analysis – PCA}
+\textbf{Data used: Chemical variables}
+
+Principal Component Analysis (PCA) was applied to 16 sediment chemical variables to identify major contaminant groupings (e.g., metals, PCBs, organochlorines) and reduce dimensionality. Each site was assigned a composite sediment contamination score called \textbf{SumRel}, calculated by summing scaled (0–1) principal component scores.
+
+\subsection*{Site Classification}
+\textbf{Data used: Chemical variables}
+
+Sites were classified based on their SumRel scores. The 62 sites with the lowest contamination were identified as \textbf{Reference (REF)} sites, and the 62 sites with the highest contamination were classified as \textbf{Degraded (DEG)} sites. These served as the endpoints for defining a reference–degraded biological gradient.
+
+\subsection*{Zoobenthic Community Grouping – Cluster Analysis}
+\textbf{Data used: Biological variables}
+
+Ward’s hierarchical clustering was performed on octave-transformed relative abundances of 16 dominant zoobenthic taxa. This analysis identified two major clusters:
+\begin{itemize}
+    \item Cluster C1: Depositional (soft-substrate taxa)
+    \item Cluster C2: Erosional (hard-substrate taxa)
+\end{itemize}
+
+\subsection*{Environmental Prediction – Discriminant Function Analysis (DFA)}
+\textbf{Data used: Habitat variables, Biological variables}
+
+Discriminant Function Analysis used habitat data including depth, dissolved oxygen, temperature, organic content, particle size, and site type (lake or river) to classify sites into either Cluster C1 or C2. The DFA model was applied to predict habitat-associated biological community type for all 311 sites.
+
+\subsection*{Gradient Analysis – Bray-Curtis Ordination}
+\textbf{Data used: Biological variables}
+
+Bray-Curtis ordination was applied to zoobenthic community data to arrange sites along a biological similarity axis. This allowed construction of the \textbf{Zoobenthic Condition Index (ZCI)}, which ranges from 1.0 (reference-like) to 0.0 (degraded-like) based on community composition.
+
+\subsection*{Statistical Modeling – Quantile Regression\textcolor{red}{(The major part that i need to reproduce and try to extend)}}
+\textbf{Data used: Chemical variables, Biological variables}
+
+Quantile regression\footnote{\href{https://en.wikipedia.org/wiki/Quantile_regression}{Quantil regression in Wikipedia}}
+ was used to model the relationship between ZCI (response) and SumRel scores (predictor). 
+Regressions were fit to the 10th, 50th (median), and 90th percentiles.
+ The results revealed significant negative relationships, showing that biological condition
+  declines with increasing sediment contamination.
+
+\subsection*{Detroit River Case Study – Validation}
+\textbf{Data used: Habitat variables, Biological variables}
+
+\subsection{Findings (Chapter 2)}
+\begin{itemize}
+    \item PCA of 16 chemical variables revealed four main contaminant groupings and provided a composite contamination index (\textbf{SumRel}) used to rank site condition.
+    \item Sites were successfully classified into \textbf{Reference} and \textbf{Degraded} categories based on SumRel scores.
+    \item Cluster analysis of zoobenthic communities identified two distinct biological assemblages:
+    \begin{itemize}
+      \item \textbf{Cluster C1}: Depositional habitat taxa
+      \item \textbf{Cluster C2}: Erosional habitat taxa
+    \end{itemize}
+    \item Discriminant Function Analysis (DFA) using habitat variables accurately predicted community type (C1 or C2) for all 311 sites.
+    \item Bray-Curtis ordination enabled creation of the \textbf{Zoobenthic Condition Index (ZCI)}, which captured each site's biological status on a 0–1 scale from degraded to reference.
+    \item Quantile regression revealed a significant \textbf{negative relationship} between ZCI and SumRel, confirming that higher contamination is linked to degraded benthic community condition.
+    \item A case study of the Detroit River showed that including \textbf{near-bottom water velocity} as an environmental predictor improved DFA classification, especially in depositional–erosional transitional zones.
+  \end{itemize}
+
+
+\subsection{Data sources (Chapter 3)}
+\begin{itemize}
+  \item \textbf{Biological data:} Chironomid larvae were collected from 113 sites during the 2004–2005 Lake Huron–Lake Erie Corridor survey. Larvae were examined for mouthpart deformities in the mentum or ligula.
+  \item Only common genera with at least 40 individuals in more than one zone were analyzed (e.g., \textit{Chironomus}).
+  \item \textbf{Geographic scope:} Sampling covered 12 zones:
+  \begin{itemize}
+    \item St. Clair River (4 zones)
+    \item Lake St. Clair (4 zones)
+    \item Detroit River (4 zones)
+  \end{itemize}
+\end{itemize}
+
+\subsection{Analysis Methods(Chapter 3)}
+\begin{itemize}
+  \item Larvae were preserved in ethanol, mounted on slides, and examined using a compound microscope.
+  \item Deformities assessed included extra or missing teeth and abnormal Kohn gaps; damaged or worn mouthparts were excluded.
+  \item The proportion of deformed larvae was calculated per genus and zone, with standard error estimated using a binomial formula.
+  \item \textbf{Statistical analysis:} Replicated G-statistic tests were used to test for:
+  \begin{itemize}
+    \item Spatial variation in deformity frequency across zones
+    \item Taxonomic variation among different genera
+  \end{itemize}
+\end{itemize}
+
+\subsection{Findings (Chapter 3)}
+\begin{itemize}
+  \item Deformity rates varied significantly by genus; \textit{Chironomus} had the highest deformity incidence.
+  \item Spatial variation showed elevated deformities in zones not previously classified as degraded (e.g., Walpole Island, Canadian side of the St. Clair River, Belle Isle).
+  \item These results suggest that mouthpart deformities are sensitive indicators of low-level or undetected contamination.
+  \item \textbf{Conclusion:} Mouthpart deformities offer complementary information to community composition and can reveal stress not captured by broader biological indicators.
+\end{itemize}
+
+The full analytical approach was re-applied specifically to Detroit River sites to test its validity. Inclusion of near-bottom water velocity (a habitat variable available only for this region) improved the accuracy of DFA classification, especially in sites with mixed depositional–erosional conditions.
+

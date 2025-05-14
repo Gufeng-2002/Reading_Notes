@@ -1,0 +1,111 @@
+\section{Vercruysse's work (2022)}
+The following notes summarize the work of Vercruysse (2022) on the environmental gradients in saline fens of Alberta.
+ The study focuses on the relationship between morphometry and water chemistry in saline wetlands, 
+ particularly in relation to the distribution of aquatic vegetation.
+
+\subsection{Data Source (Chapter 2)}
+Data were collected from 52 waterbodies in a saline fen complex in Alberta during 2020, categorized into three morphometry types: flark (n = 38), flark/pond (n = 9), and pond (n = 5).
+
+\textbf{Environmental variables collected:}
+\begin{itemize}
+  \item \textbf{Water quality:} Temperature ($^\circ$C), pH, dissolved oxygen (mg/L), specific conductance ($\mu$S/cm), redox potential (mV)
+  \item \textbf{Nutrients and ions:} Chloride, sulfate (SO$_4$-S), phosphate (PO$_4$-P), ammonium (NH$_4$-N), total organic nitrogen (TON-N)
+  \item \textbf{Cations and elements:} Calcium (Ca), Magnesium (Mg), Sodium (Na), Potassium (K), Aluminum (Al), Boron (B), Barium (Ba), Iron (Fe), Manganese (Mn), Lithium (Li), Strontium (Sr), Silicon (Si), Sulfur (S)
+  \item \textbf{Physical site info:} Maximum depth (cm), northing and easting coordinates
+\end{itemize}
+
+All chemical analyses were conducted at the NRAL facility at the University of Alberta.
+
+\subsection{Analysis Methods (Chapter 2)}
+
+\begin{itemize}
+  \item \textbf{Dixon’s Q-test:} Used to identify outlier sites in the environmental dataset, which were removed before multivariate analysis.\\
+  \textit{Variables used:} All environmental variables listed below were included:
+  \begin{itemize}
+    \item pH, temperature, dissolved oxygen, specific conductance, redox potential
+    \item Nutrients: phosphate (PO$_4$), ammonium (NH$_4$), nitrate (NO$_3$), total organic nitrogen (TON)
+    \item Major ions and elements: Na, K, Ca, Mg, Cl, SO$_4$, Al, Fe, Mn, Sr, Si, Li, B, Ba, S
+  \end{itemize}
+
+  \item \textbf{Pearson’s correlation:} Tested relationships between morphometry class (coded as flark = 1, flark/pond = 2, pond = 3) and each environmental variable.\\
+  \textit{Variables used:} Same as above (individual environmental variables vs. morphometry index).
+
+  \item \textbf{Holm’s correction:} Applied to adjust p-values for multiple comparisons in the Pearson correlation analysis.\\
+  \textit{Variables used:} Adjusted p-values from all Pearson tests involving morphometry and environmental variables.
+
+  \item \textbf{Principal Component Analysis (PCA):}
+  \begin{itemize}
+    \item Conducted on water chemistry and environmental variables to reduce dimensionality and detect structure in gradients.
+    \item Morphometry class was excluded as a variable to avoid bias.
+    \item Varimax rotation was used to enhance interpretability of component loadings.
+  \end{itemize}
+  \textit{Variables used:} Full set of chemical and environmental variables (same as above), excluding morphometry.
+\end{itemize}
+
+\subsection{Findings (Chapter 2)}
+\begin{itemize}
+  \item \textbf{Depth} was the only variable moderately correlated with morphometry (Pearson’s r = 0.512), though it was not statistically significant after Holm correction.
+  \item Several variables had weak correlations (r = 0.3–0.5) with morphometry, including: specific conductance, chloride, sulfate, sodium, calcium, magnesium, sulfur, strontium, boron, and northing.
+  \item Phosphate concentration showed the most notable difference in means among morphometry types, highest in flark/ponds and lowest in ponds.
+  \item PCA revealed no clear grouping by morphometry — suggesting overlapping environmental conditions across wetland types
+\end{itemize}
+
+\subsection{Data Source (Chapter 3)}
+Samples were collected from 52 waterbodies in a boreal saline fen in Alberta between September 6–8, 2020. Wetlands were categorized into three morphometry types:
+\begin{itemize}
+  \item Flark (n = 38)
+  \item Flark/pond (n = 9)
+  \item Pond (n = 5)
+\end{itemize}
+
+\textbf{Biological data:}
+\begin{itemize}
+  \item Aquatic invertebrates sampled using CABIN protocol (D-frame net, 250~$\mu$m mesh).
+  \item 20 jabs per site, with organisms sieved through 4.00, 1.00, 0.50, and 0.25~mm mesh sizes.
+  \item Two replicate samples per site were preserved in ethanol and identified to the lowest taxonomic level.
+\end{itemize}
+
+\textbf{Water chemistry data:}
+\begin{itemize}
+  \item Parameters included: specific conductance, pH, dissolved oxygen, temperature, redox potential.
+  \item Ion and nutrient concentrations: Na, K, Ca, Mg, Cl, SO$_4$, PO$_4$, NH$_4$, TON, Fe, Mn, Sr, etc.
+\end{itemize}
+
+\subsection{Analysis Methods (Chapter 3)}
+\begin{itemize}
+  \item \textbf{Community Composition Assessment:}
+    \begin{itemize}
+      \item Calculated total invertebrate abundance and family richness from site replicates.
+    \end{itemize}
+
+  \item \textbf{Non-metric Multidimensional Scaling (NMDS):}
+    \begin{itemize}
+      \item Applied to genus-level community composition.
+      \item Hellinger transformation used on abundance data.
+      \item Bray-Curtis dissimilarity used for ordination.
+      \item Environmental vectors (e.g., conductance, depth, pH) fitted to NMDS axes.
+    \end{itemize}
+
+  \item \textbf{Indicator Species Analysis (IndVal):}
+    \begin{itemize}
+      \item Tested for taxa associated with wetland types (flark, flark/pond, pond).
+      \item No taxa showed statistically significant indicator values.
+    \end{itemize}
+
+  \item \textbf{Linear Regression:}
+    \begin{itemize}
+      \item Regressed total invertebrate abundance and family richness against log-transformed specific conductance.
+      \item Tested the hypothesis that richness decreases and abundance increases with salinity.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Findings (Chapter 3)}
+\begin{itemize}
+  \item Community composition did not differ significantly among morphometry types.
+  \item NMDS showed overlapping site groupings; no distinct clustering by wetland type.
+  \item Indicator species analysis revealed no statistically significant indicator taxa.
+  \item Depth was the only variable marginally associated with morphometry.
+  \item Conductance and major ion concentrations showed weak, non-significant relationships with wetland type.
+  \item Regression analyses did not strongly support hypothesized trends in richness or abundance relative to conductivity.
+\end{itemize}
+

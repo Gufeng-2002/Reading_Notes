@@ -1,0 +1,14 @@
+------------------
+Order Details
+-----------------
+Order ID: 2460285
+Date: 20250512
+
+----------------------
+Feature Types
+-----------------------
+ - Municipalities - Legally Defined Administrative Areas of BC in directory ABMS_MUNI
+
+----------------------------
+Packaged Products
+----------------------------

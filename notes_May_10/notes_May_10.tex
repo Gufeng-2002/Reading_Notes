@@ -1,0 +1,165 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{longtable}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx} % Required for including images
+\geometry{margin=1in}
+
+\title{Summary about dissertation of Zhang (2008) and Vercruysse (2022)Thesis work}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+    {\Large Abstract}
+\end{center}
+
+    In Part 1 and 2 of this document, i summarized the work of Zhang (2008) and Vercruysse et al. (2017) by listing the data, methods and results presented in their work.
+    It can be skipped if the summary is not of interest.
+
+    In part 3, i did some coding with simualted data to see how can i quickly reproduce similar results and how could i extend the work.
+    These ideas are tentative and not fully developed yet, but i think it is a good start and worth to be included in the report.
+
+The major exploration i did can be concentrated into the figure below, which shows the geographic/spatial exploration(a), 
+breakpoint quantile regression(b, c) and PCA by SVD(d).
+
+The code and supportive files can be found in this \textbf{GitHub repository}: \href{https://github.com/Gufeng-2002/Reading_Notes/tree/main}{\textit{src\_test(source of code)}.}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../src_test/results/combined_plot.png}
+    % \caption{\textit{Summary of the major exploration i did}}
+    % \label{fig:summary}
+\end{figure}
+
+
+\newpage
+\begin{center}
+    \tableofcontents
+\end{center}
+
+
+\newpage
+\input{sections/Zhangs_work.tex}
+\newpage
+\input{sections/Vercruysse_wok.tex}
+\newpage
+
+\section{How can i reproduce and extend the work?}
+\subsection{Geographic visualization and spitial analysis by coding}
+
+I found in several places in the papers, the authors used geographic maps to show the location of 
+survery sites and did spitial analysis on them. To might make the visualization more clear and the analysis
+more efficient, i can use librarys like \textit{geopandas} and \textit{geopy} 
+in python to do the geographic visualization and spatial analysis. 
+They may provide more possibilities to explore and extend the work of Zhang (2008) and Vercruysse et al. (2017) and might
+be a powerful tool for spitial data.
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../src_test/results/test_BC_map.png}
+    \caption{\textit{Example of a map showing the location of Kamloops and Vancouver in BC. 4 points and two lines were added to the map.}}
+    \label{fig:test_BC_map}
+\end{figure}
+
+Figure \ref{fig:test_BC_map} shows an example of a map showing the location of Kamloops and Vancouver in BC.
+I downloaded the geographic data from government website, including: \href{https://open.canada.ca/data/en/dataset/a883eb14-0c0e-45c4-b8c4-b54c4a819edb/resource/12c03de6-c3f7-4f5f-bb5c-d479f2332842}{\textit{open.canada.ca}} and 
+\href{https://catalogue.data.gov.bc.ca/dataset/municipalities-legally-defined-administrative-areas-of-bc/resource/0bd8e3d1-4d7f-4db8-a8b2-2cd4cd051074}{\textit{catalogue.data.gov.bc.ca}}. They provide the provincial and municipal boundaries of BC.
+
+I managed to add basic geographic elements to the map, like points, lines and polygons and it worked well. If this part is considered worth to be included, 
+i would spcifically try to create maps for Ontario Province with the Lake Huron-Lake Erie area and the Alberta Province with the fen complex distribution.
+
+\subsection{Breakpoint quantile regression}
+
+The detailed math part of breakpoint quantile regression is not discussed here, it could be left to work on later.
+I tried to reproduce a similar result by using simulated data to validate the implementation with Python and my own code.
+
+\paragraph{Continuous Breakpoint Regression:}
+In continuous breakpoint regression, the relationship between the independent variable \(x\) and the dependent variable \(y\) is modeled such that the function remains continuous at the breakpoint \(c\). For example:
+
+\[
+y = 
+\begin{cases} 
+\beta_0 + \beta_1 x & \text{if } x \leq c \\
+\beta_0 + \beta_1 c + \beta_2 (x - c) & \text{if } x > c
+\end{cases}
+\]
+
+\paragraph{Discontinuous Breakpoint Regression:}
+In discontinuous breakpoint regression, the relationship between \(x\) and \(y\) is allowed to have a jump at the breakpoint \(c\). For example:
+
+\[
+y = 
+\begin{cases} 
+\beta_0 + \beta_1 x & \text{if } x \leq c \\
+\beta_2 + \beta_3 x & \text{if } x > c
+\end{cases}
+\]
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../src_test/results/breakpoint_quantile_regression.png}
+    \caption{\textit{Example of breakpoint quantile regression}}
+    \label{fig:breakpoint_quantile_regression}
+\end{figure}
+
+It looks great, similar to one of the results by Vercruysse's work.
+
+Later, i will try to incorporate this method with Bayesian formula and other methods to try to get a better result.
+
+
+\subsection{PCA by Singular Value Decomposition (SVD)}
+
+PCA is a method that was used in both Zhang's and Vercruysse 's work, i am also interested in this method.
+
+These days i am reading the book \textit{Introduction to Linear Algebra, Fifth Edition(Gilbert Strang)} and very interested in the part
+about singular value decomposition(SVD) and its importance in achieving PCA. Therefore, i tried to implement PCA using SVD by linear algebra 
+with Python.
+
+The SVD of \( X_c \) is given by:
+\[
+X_c = U \Sigma V^T
+\]
+where:
+- \( U \) is an \( m \times m \) orthogonal matrix,
+- \( \Sigma \) is an \( m \times n \) diagonal matrix with singular values on the diagonal,
+- \( V \) is an \( n \times n \) orthogonal matrix.
+
+
+The transformed data in the reduced space is given by:
+\[
+X_{\text{PCA}} = X_c V_k
+\]
+where \( V_k \) contains the top \( k \) principal components.
+
+The reason of using SVD is that i want to try to adjust the PCA method and incoporate it with other methods 
+to make it more flexible and specific for the data on hand.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../src_test/results/pca_svd.png}
+    \caption{\textit{Example of PCA and SVD on the simulated data}}
+    \label{fig:pca_svd}
+\end{figure}
+
+For example, figure \ref{fig:pca_svd} shows the PCA result by SVD, which is upon a simulated data.
+One tentative idea could be to find a way to use less data(samples) to get relatively accurate 
+singular values and vectors, which can be used to save time and effort in collecting data and computation.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../src_test/results/pca_svd_sampled_data.png}
+    \caption{\textit{Example of PCA and SVD on sampled data from the simulated data}}
+    \label{fig:pca_svd_2}
+\end{figure}
+
+Figure \ref{fig:pca_svd_2} shows the PCA result by SVD, which is upon different sampled sub-data from the 
+original simulated data. The result is not as good as the one in figure \ref{fig:pca_svd}, which uses the whole data.
+But this can be an aspect to explore along the work.
+
+
+\end{document}
